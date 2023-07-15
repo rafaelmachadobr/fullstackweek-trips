@@ -1,5 +1,5 @@
-import Image from "next/image";
+"use client";
 
 export default function Home() {
-  return <h1>Olá</h1>;
+  return <div>Olá, Mundo!</div>;
 }
