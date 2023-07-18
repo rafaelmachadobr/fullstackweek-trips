@@ -24,7 +24,7 @@ const RecommendedTrips = async ({ params }: { params: { tripId: string } }) => {
   return (
     <div className="container mx-auto">
       <TripHeader trip={trip} />
-      <TripReservation trip={trip} />
+      <TripReservation tripEndDate={trip.endDate} tripStartDate={trip.startDate} maxGuests={trip.maxGuests} />
       <TripDescription description={trip.description} />
       <TripHighlights highlights={trip.highlights} />
       <TripLocation
