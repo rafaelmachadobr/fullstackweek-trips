@@ -41,7 +41,7 @@ const TripReservation = ({
   const router = useRouter();
 
   const onSubmit = async (data: TripReservationForm) => {
-    const response = await fetch("http://localhost:3000/api/trips/check", {
+    const response = await fetch("/api/trips/check", {
       method: "POST",
       body: Buffer.from(
         JSON.stringify({
