@@ -41,8 +41,6 @@ const generateSearchQuery = (
     };
   }
 
-  console.log({ budget });
-
   if (budget !== "undefined" && budget !== "null") {
     searchQuery = {
       ...searchQuery,
