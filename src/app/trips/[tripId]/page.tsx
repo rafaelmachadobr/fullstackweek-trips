@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+
 import React from "react";
 import TripHeader from "./components/TripHeader";
 import TripReservation from "./components/TripReservation";
@@ -16,29 +17,36 @@ const getTripDetails = async (tripId: string) => {
   return trip;
 };
 
-const RecommendedTrips = async ({ params }: { params: { tripId: string } }) => {
+const TripDetails = async ({ params }: { params: { tripId: string } }) => {
   const trip = await getTripDetails(params.tripId);
 
   if (!trip) return null;
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto lg:px-40">
       <TripHeader trip={trip} />
-      <TripReservation
-        tripId={trip.id}
-        tripEndDate={trip.endDate}
-        tripStartDate={trip.startDate}
-        maxGuests={trip.maxGuests}
-        pricePerDay={trip.pricePerDay as any}
-      />
-      <TripDescription description={trip.description} />
-      <TripHighlights highlights={trip.highlights} />
+      <div className="flex flex-col lg:flex-row lg:mt-12 lg:gap-20">
+        <div className="lg:order-2">
+          <TripReservation
+            tripId={trip.id}
+            pricePerDay={trip.pricePerDay as any}
+            tripStartDate={trip.startDate}
+            tripEndDate={trip.endDate}
+            maxGuests={trip.maxGuests}
+          />
+        </div>
+
+        <div className="lg:order-1">
+          <TripDescription description={trip.description} />
+          <TripHighlights highlights={trip.highlights} />
+        </div>
+      </div>
       <TripLocation
-        location={trip.location}
         locationDescription={trip.locationDescription}
+        location={trip.location}
       />
     </div>
   );
 };
 
-export default RecommendedTrips;
+export default TripDetails;
