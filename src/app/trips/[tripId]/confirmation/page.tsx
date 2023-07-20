@@ -48,6 +48,9 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
 
     if (status === "unauthenticated") {
       router.push("/");
+      toast.error("Você precisa ter uma conta para realizar uma reserva!", {
+        position: "bottom-center",
+      });
     }
 
     fetchTrip();

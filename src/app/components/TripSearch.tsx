@@ -75,6 +75,7 @@ const TripSearch = () => {
                 placeholder="Orçamento"
                 onValueChange={field.onChange as any}
                 value={field.value}
+                className="w-full"
                 onBlur={field.onBlur}
               />
             )}
@@ -83,7 +84,7 @@ const TripSearch = () => {
 
         <Button
           onClick={() => handleSubmit(onSubmit)()}
-          className="w-1/2 lg:h-fit"
+          className="lg:w-1/2 lg:h-fit sm:w-full"
         >
           Buscar
         </Button>
