@@ -73,7 +73,6 @@ const TripSearch = () => {
               <CurrencyInput
                 allowDecimals={false}
                 placeholder="Orçamento"
-                className="w-full"
                 onValueChange={field.onChange as any}
                 value={field.value}
                 onBlur={field.onBlur}
@@ -82,7 +81,10 @@ const TripSearch = () => {
           />
         </div>
 
-        <Button onClick={() => handleSubmit(onSubmit)()} className="lg:w-1/2">
+        <Button
+          onClick={() => handleSubmit(onSubmit)()}
+          className="w-1/2 lg:h-fit"
+        >
           Buscar
         </Button>
       </div>
